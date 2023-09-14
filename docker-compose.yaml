@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  minio:
+    image: quay.io/minio/minio:RELEASE.2022-01-04T07-41-07Z
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    env_file:
+      - ./.env
+    entrypoint: [ "minio", "server", "/data", "--console-address", ":9001" ]
